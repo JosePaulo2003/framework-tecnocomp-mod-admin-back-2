@@ -1,0 +1,31 @@
+<mat-card class="card-topico">
+  <mat-card-header>
+    <h4>Tópico {{indice + 1}}: <br><span [title]="topico.nome_topico">{{ topico.nome_topico | truncate:30 }}</span></h4>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="box-card-content">
+      <p>Vídeos({{ topico.VideoUrls.length }})</p>
+      <p><a target="_blank" [href]="topico.textoApoio">Slide</a></p>
+      <p>Saiba Mais({{ topico.SaibaMais.length}})</p>
+      <p>Referências({{ topico.Referencias.length}})</p>
+      <p>Atividade({{ topico.Exercicios.length}})</p>
+      <p> <a target="_blank" [href]="topico.ebookUrlGeral">E-book do Tópico</a></p>
+    </div>
+    <mat-divider></mat-divider>
+
+
+  </mat-card-content>
+  <div class="icons-btn">
+    <div class="icons">
+        <div class="box-icon" [routerLink]="['/editar-topico', topico.id]">
+          <mat-icon class="card-icon">border_color</mat-icon>
+        </div>
+        <div class="box-icon" (click)="abrirConfirmacaoExcluir()">
+          <mat-icon class="card-icon">delete</mat-icon>
+        </div>
+    </div>
+    <mat-card-actions>
+      <button class="btn">Ver mais</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

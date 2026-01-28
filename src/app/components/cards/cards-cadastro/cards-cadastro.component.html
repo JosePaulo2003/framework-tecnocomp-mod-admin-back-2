@@ -1,0 +1,16 @@
+<mat-card class="container-card">
+  <mat-card-header>
+    <mat-card-title>{{this.nomeCard}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngIf="isSvgIcon(caminhoImagem); else materialIcon">
+      <img class="card-icon svg-icon" [src]="caminhoImagem" alt="" />
+    </ng-container>
+    <ng-template #materialIcon>
+      <mat-icon class="card-icon">{{ caminhoImagem }}</mat-icon>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="btn" [routerLink]="this.caminhoUrl">Cadastrar</button>
+  </mat-card-actions>
+</mat-card>

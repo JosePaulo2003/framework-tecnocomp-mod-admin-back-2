@@ -1,0 +1,124 @@
+.container-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 640px;
+  /* Se quiser deixar o card mais gordinho ou magrinho, é aqui que mexo na largura/altura/padding — minha mesa de cirurgia CSS. */
+  padding: 28px 26px 28px;
+  border: none;
+  border-radius: 18px;
+  background: #2b2a2e;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  color: white;
+  text-align: left;
+  text-transform: none;
+  margin: 0;
+  font-size: 16px;
+  border-top: 10px solid #7C4CC6;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.container-card:hover{
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+  transform: translateY(-3px);
+}
+
+.container-card mat-card-header{
+  padding: 0;
+  margin: 0 0 12px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.container-card .mat-mdc-card-header-text{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.container-card mat-card-title{
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.container-card mat-card-subtitle{
+  font-size: 14px;
+  color: #a2a2a2;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.icon-group{
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  margin-left: -16px;
+  /* Ajusto este gapzinho quando quero que os ícones se abracem ou tirem férias um do outro — vida de arquiteto de pixels. */
+}
+
+.content mat-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.box-icon {
+  border-radius: 8px;
+  border: 1.5px solid #535353;
+  background: #3b3b3e;
+  width: 44px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.box-icon:hover{
+  border-color: #7C4CC6;
+  background: #4a4a4d;
+}
+
+.container-card mat-card-actions{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  min-width: 200px;
+  height: 38px;
+  padding: 0 36px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #9a56ff 0%, #7C4CC6 80%);
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-right: 15px;
+  margin-left: 30px;
+  /* Se eu mudar largura ou padding aqui, o botão desliza pra lá e pra cá; é meu jeito de pilotar esse mini hoverboard roxo. */
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(122, 76, 198, 0.4);
+}

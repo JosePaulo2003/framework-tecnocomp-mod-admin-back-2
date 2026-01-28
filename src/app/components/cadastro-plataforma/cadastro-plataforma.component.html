@@ -1,0 +1,42 @@
+<app-header-voltar texto="Cadastrar Plataforma" caminhoVoltar="/cadastros"></app-header-voltar>
+<div class="cadastro-plataforma-pagina">
+  <section class="cadastro-plataforma-container">
+    <h2 class="cadastro-plataforma-titulo">Cadastro de Plataforma</h2>
+    <p class="cadastro-plaforma-aviso">*Indica uma pergunta obrigatória</p>
+    <form
+      [formGroup]="plataformaForm"
+      (ngSubmit)="onSubmit()"
+      class="forms"
+      #formDir="ngForm"
+    >
+      <div class="forms-campo">
+        <label for="plataformaNome" class="cadastro-plataforma-label">Nome da Ferramenta <span class="obrigatorio">*</span></label>
+        <input class="cadastro-plataforma-input" type="text" formControlName="plataformaNome" placeholder="Nome da ferramenta"/>
+      </div>
+      <section class="campos-inline">
+        <div class="forms-campo">
+          <label for="plataformaUrl" class="cadastro-plataforma-label">URL da Plataforma <span class="obrigatorio">*</span></label>
+          <input class="cadastro-plataforma-input" type="text" formControlName="plataformaUrl" placeholder="URL da plataforma"/>
+        </div>
+        <div class="forms-campo">
+          <label for="idCliente" class="cadastro-plataforma-label">ID do Cliente <span class="obrigatorio">*</span></label>
+          <input class="cadastro-plataforma-input" type="text" formControlName="idCliente" placeholder="Id do cliente"/>
+        </div>
+      </section>
+      <div class="buttons">
+        <button type="button" routerLink="/cadastros" id="botao-um">Cancelar</button>
+        <button type="submit" id="botao-dois">Cadastrar plataforma</button>
+      </div>
+      <div
+        *ngIf="
+          (plataformaForm.invalid ||
+            plataformaNome.invalid ||
+            idCliente.invalid) &&
+          formDir.submitted
+        "
+      >
+        <p class="validators">Preencha todos os campos!</p>
+      </div>
+    </form>
+  </section>
+</div>

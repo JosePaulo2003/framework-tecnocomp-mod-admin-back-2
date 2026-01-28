@@ -1,0 +1,51 @@
+<app-header-voltar texto="Cadastrar Usuário" caminhoVoltar="/cadastros"></app-header-voltar>
+
+<div class="cadastro-usuario-pagina">
+  <div class="cadastro-usuario-container">
+    <h2 class="cadastro-usuario-titulo">Formulário de cadastro de usuario</h2>
+    <p class="cadastro-usuario-aviso">* Indica campos obrigatórios</p>
+  <form id="form" class="form" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="campos">
+      <div class="form-conteudo">
+        <label for="Nome-usuario" class="cadastro-usuario-label">Nome<span> *</span></label>
+        <input type="text" formControlName="nome" class="cadastro-usuario-input" id="nome" placeholder="Digite seu nome completo">
+      </div>
+      <div class="form-conteudo">
+        <label for="email" class="cadastro-usuario-label">Email<span> *</span></label>
+        <input type="email" formControlName="email" class="cadastro-usuario-input" id="nome" placeholder="exemplo@gmail.com">
+      </div>
+      <div class="form-conteudo">
+          <label for="senha" class="cadastro-usuario-label">Senha<span> *</span></label>
+          <input [type]="hide ? 'password' : 'text'"  formControlName="senha" class="cadastro-usuario-input" type="password" formControlName="senha" placeholder="Digite a sua senha">
+          <button  class="icon" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+      </div>
+      <div class="form-conteudo">
+          <label for="confirmar-senha" class="cadastro-usuario-label">Confirmar<span> *</span></label>
+          <input type="password" formControlName="confirmarSenha" class="cadastro-usuario-input" id="confirmar-senha" placeholder="Confirmar a senha">
+      </div>
+    </div>
+
+    <div class="form-conteudo-tipo">
+      <label for="tipo" class="cadastro-usuario-label">Tipo de usuário<span> *</span></label>
+      <mat-radio-group class="radio-group" formControlName="tipo">
+        <mat-radio-button class="check-professor" value="professor">Professor</mat-radio-button>
+        <mat-radio-button *ngIf="isAdminUser()" class="check-administrador" value="adm">Administrador</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="buttons">
+        <button (click)="home()" id="botao-um">Cancelar</button>
+          <button
+              type="submit"
+              id="botao-dois"
+              [disabled]="this.buttonDisabled"
+              [ngClass]="{'button-disabled': this.buttonDisabled}"
+            >
+              Confirmar
+          </button>
+        </div>
+    </form>
+  </div>
+  
+  </div>

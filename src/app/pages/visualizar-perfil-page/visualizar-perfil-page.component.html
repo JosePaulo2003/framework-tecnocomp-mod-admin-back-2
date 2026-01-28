@@ -1,0 +1,33 @@
+<main class="visualizar-perfil">
+  <section class="visualizar-perfil__card" *ngIf="!loading && !error; else statusBlock">
+    <header class="visualizar-perfil__header">
+      <div>
+        <p class="tag">Perfil do usuário</p>
+        <h1>{{ user?.username }}</h1>
+        <p class="subtitle">{{ user?.tipo | uppercase }}</p>
+      </div>
+      <button type="button" (click)="voltar()" class="voltar-btn">
+        ← Voltar
+      </button>
+    </header>
+
+    <div class="visualizar-perfil__body">
+      <div class="info-block">
+        <span class="label">Email</span>
+        <span class="value">{{ user?.email }}</span>
+      </div>
+
+      <div class="info-block">
+        <span class="label">Tipo</span>
+        <span class="pill">{{ user?.tipo }}</span>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #statusBlock>
+    <div class="visualizar-perfil__card status-card">
+      <p *ngIf="loading">Carregando... respira que eu chego lá.</p>
+      <p *ngIf="!loading && error">{{ error }}</p>
+    </div>
+  </ng-template>
+</main>

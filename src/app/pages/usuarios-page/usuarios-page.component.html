@@ -1,0 +1,42 @@
+<div class="container-usuarios">
+  <app-titulo-secao
+    titulo="Cadastrar novo usuário"
+    caminhoUrl="../cadastro-usuario"
+    [quantidade]="pagination.totalItems"
+    nomeCard="usuários"
+  ></app-titulo-secao>
+
+  <div class="lista-usuarios-wrapper">
+    <button
+      class="lista-usuarios__seta lista-usuarios__seta--left"
+      type="button"
+      *ngIf="podeVoltarLista"
+      (click)="voltarPagina()"
+      aria-label="Voltar lista de usuários"
+    >
+      <img src="assets/icons/icone_prox_usuario.svg" alt="Página anterior de usuários">
+    </button>
+    <div class="container-cards-users">
+      <div class="card" *ngFor="let usuario of usuarios">
+        <app-cards-usuarios [user]="usuario"  (excluirUsuario)="excluirUsuario($event)"></app-cards-usuarios>
+      </div>
+    </div>
+    <button
+      class="lista-usuarios__seta lista-usuarios__seta--right"
+      type="button"
+      *ngIf="podeAvancarLista"
+      (click)="avancarPagina()"
+      aria-label="Avançar lista de usuários"
+    >
+      <img src="assets/icons/icone_prox_usuario.svg" alt="Próxima página de usuários">
+    </button>
+  </div>
+  
+  <!-- Componente de paginação reutilizável -->
+  <app-pagination 
+    [pagination]="pagination"
+    noItemsMessage="Nenhum usuário encontrado"
+    itemsLabel="usuários"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+</div>

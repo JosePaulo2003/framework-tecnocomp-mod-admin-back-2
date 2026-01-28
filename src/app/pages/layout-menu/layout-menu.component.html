@@ -1,0 +1,104 @@
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer
+    #drawer
+    mode="side"
+    opened="true"
+    class="sidenav"
+    [style.width.px]="sidenavWidth"
+  >
+    <div class="logo">
+      <img src="../../../assets/logo.png" alt="logo" />
+    </div>
+    <div class="titulo">
+      <p>Links</p>
+      <mat-divider></mat-divider>
+    </div>
+    <mat-nav-list class="nav-list">
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <img class="nav-icon" src="assets/icons/btn_dashboard_menu.svg" alt="Dashboard" />
+        Dashboard
+      </a>
+      <a routerLink="/cadastros" routerLinkActive="active">
+        <mat-icon>add</mat-icon>
+        Cadastrar
+      </a>
+      <a routerLink="/meu-perfil" routerLinkActive="active">
+        <img class="nav-icon" src="assets/icons/btn_meuperfil_menu.svg" alt="Meu perfil" />
+        Meu perfil
+      </a>
+      <!-- Administrador -->
+      <a *ngIf="isAdmin" routerLink="/usuarios" routerLinkActive="active">
+        <img class="nav-icon" src="assets/icons/btn_usuarios_menu.svg" alt="Usuarios" />
+        Usuarios
+      </a>
+      <a *ngIf="isAdmin" routerLink="/modulos" routerLinkActive="active">
+        <img class="nav-icon" src="assets/icons/btn_modulos_menu.svg" alt="Modulos" />
+        Modulos
+      </a>
+      <a *ngIf="isAdmin" routerLink="/plataformas" routerLinkActive="active">
+        <img class="nav-icon" src="assets/icons/btn_plataformas_menu.svg" alt="Plataformas" />
+        Plataformas
+      </a>
+
+      <!-- Professor -->
+      <a *ngIf="isProfessor" routerLink="/templates" routerLinkActive="active">
+        <mat-icon>person</mat-icon>
+        Templates
+      </a>
+      <a *ngIf="isProfessor" routerLink="/meus-modulos" routerLinkActive="active">
+        <mat-icon>devices</mat-icon>
+        Meus Modulos
+      </a>
+      <a *ngIf="isProfessor" routerLink="/minhas-plataformas" routerLinkActive="active">
+        <mat-icon>view_module</mat-icon>
+        Minhas Plataformas
+      </a>
+
+    </mat-nav-list>
+
+    <div class="caixa-perfil">
+      <div class="imagem"></div>
+      <div class="texto">
+        <p>{{ getUsuarioDados().username }}</p>
+        <p style="color: #a3a3a3">{{ getUsuarioDados().email }}</p>
+      </div>
+      <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>close</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+    <!-- Eu coloquei essa alça aqui porque queria brincar de Tetris com a largura do menu. -->
+    <div class="resize-handle" (mousedown)="startResizing($event)"></div>
+  </mat-drawer>
+
+  <mat-drawer-content class="main-content">
+    <header class="header">
+      <div class="header-left">
+        <button class="drawer-toggle" type="button" (click)="toggleDrawer()">
+          <img
+            class="drawer-toggle-icon"
+            [src]="isDrawerOpen ? 'assets/icons/btn_voltar_dashboard.svg' : 'assets/icons/btn_voltar_dashboard_2.svg'"
+            alt="Toggle menu"
+          />
+        </button>
+        <h1>{{ currentPageTitle }}</h1>
+      </div>
+    <div class="search-bar" role="search">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Pesquisar..."
+      />
+    </div>
+    </header>
+
+    <div class="container-conteudo">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+

@@ -1,0 +1,31 @@
+<mat-card class="user-card">
+  <div class="user-card__wrapper">
+    <div class="user-card__left">
+      <img class="user-card__avatar" src="assets/icons/icone_usuario_usuarios.svg" alt="Avatar do usuário" />
+      <span class="user-card__name" [title]="user.username">
+        {{ user.username | truncate:40 }}
+      </span>
+    </div>
+    <div class="user-card__right">
+      <button
+        type="button"
+        class="icon-btn"
+        [routerLink]="['/editar-usuario', user.id]"
+        aria-label="Editar usuário"
+      >
+        <img src="assets/icons/icone_editar_usuario.svg" alt="Editar usuário" />
+      </button>
+      <button
+        type="button"
+        class="icon-btn icon-btn--danger"
+        (click)="abrirConfirmacaoExcluir()"
+        aria-label="Excluir usuário"
+      >
+        <img src="assets/icons/icone_deletar_usuario.svg" alt="Excluir usuário" />
+      </button>
+      <button class="btn" type="button" (click)="verPerfil(user.id)">
+        Ver perfil
+      </button>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,21 @@
+<!--Seção de botões da página inicial HOME-->
+<div class="container">
+  <section class="button-section">
+    <div class="button-group">
+      <button class="start-button" [routerLink]="urlInicio">INICIAR</button>
+      <a
+        class="link"
+        href="{{ this.verAoVivo.dados_completos.ebookUrlGeral }}"
+        target="_blank"
+      >
+        <button class="download-button">
+          <p>DOWNLOAD E-BOOK UNIDADE</p>
+          <img
+            src="assets/imgs/download.png"
+            alt="icone de download"
+          />
+        </button>
+      </a>
+    </div>
+  </section>
+</div>

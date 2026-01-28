@@ -1,0 +1,74 @@
+
+.container {
+  height: 90vh;
+  width: 100%;
+  padding-top: 10vh;
+}
+.container-section {
+  height: 90vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  justify-content: center;
+  color: white;
+  align-items: end;
+  text-align: center;
+}
+ 
+.container-esquerdo {
+  height: 90vh;
+  width: 100%;
+  align-content: center;
+  
+}
+.container-esquerdo p {
+  text-align: center;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.container-esquerdo h1 {
+
+  color: var(--Terciaria, #fff);
+  font-family: Arial;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  /* border-left: 3px solid #9256ed; */
+  width: 70%;
+  margin: 0 auto;
+  padding-right: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.container-direito {
+    height: 90vh;
+    align-content: center;
+    /* padding-bottom: 20px; */
+}
+
+.imagem-acima {
+  align-self: center;
+  margin-bottom: 70px;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.text-unidade{
+  padding-left: 20px;
+  color: #9665df;
+}
+.container-esquerdo app-video-section iframe {
+  width: 100%;
+  /* height: auto; */
+  aspect-ratio: 16 / 9;
+}
+
+
+

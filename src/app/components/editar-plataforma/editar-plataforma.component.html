@@ -1,0 +1,100 @@
+<app-header-voltar texto="Editar Plataforma"></app-header-voltar>
+<main class="container-editar-plataforma">
+  <form class="forms" [formGroup]="plataformaForm" (ngSubmit)="salvarAlteracoes()">
+    <div class="titulo-formulario">
+      <h1>Editar Plataforma</h1>
+      <p class="obrigatorio">* Indica campos obrigatórios</p>
+    </div>
+
+    <div class="form-grid single-field">
+      <div class="form-conteudo-editar">
+        <label for="plataformaNome">Nome da Plataforma: <span>*</span></label>
+        <input
+          id="plataformaNome"
+          type="text"
+          formControlName="plataformaNome"
+          placeholder="Digite o nome da plataforma"
+        />
+        <small
+          class="error"
+          *ngIf="
+            plataformaForm.get('plataformaNome')?.invalid &&
+            plataformaForm.get('plataformaNome')?.touched
+          "
+          >Nome é obrigatório e deve ter pelo menos 3 caracteres.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-grid double-field">
+      <div class="form-conteudo-editar">
+        <label for="plataformaUrl">URL da Plataforma: <span>*</span></label>
+        <input
+          id="plataformaUrl"
+          type="url"
+          formControlName="plataformaUrl"
+          placeholder="https://"
+        />
+        <small
+          class="error"
+          *ngIf="
+            plataformaForm.get('plataformaUrl')?.invalid &&
+            plataformaForm.get('plataformaUrl')?.touched
+          "
+          >URL é obrigatória e deve ser válida.</small
+        >
+      </div>
+
+      <div class="form-conteudo-editar">
+        <label for="idCliente">ID do Cliente: <span>*</span></label>
+        <input
+          id="idCliente"
+          type="text"
+          formControlName="idCliente"
+          placeholder="Digite o ID do cliente"
+        />
+        <small
+          class="error"
+          *ngIf="
+            plataformaForm.get('idCliente')?.invalid &&
+            plataformaForm.get('idCliente')?.touched
+          "
+          >ID do cliente é obrigatório.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-grid single-field">
+      <div class="form-conteudo-editar">
+        <label for="temaTipo">Tema Visual: <span>*</span></label>
+        <select id="temaTipo" formControlName="temaTipo">
+          <option value="padrao">Padrão</option>
+          <option value="tema1">Tema 1</option>
+          <option value="tema2">Tema 2</option>
+          <option value="customizado">Personalizado</option>
+        </select>
+      </div>
+    </div>
+
+    <div
+      *ngIf="plataformaForm.get('temaTipo')?.value === 'customizado'"
+      class="form-conteudo-editar custom-colors"
+    >
+      <label>Cores Personalizadas:</label>
+      <div class="color-grid">
+        <input type="color" formControlName="customPrimaria" title="Primária" />
+        <input type="color" formControlName="customSecundaria" title="Secundária" />
+        <input type="color" formControlName="customTerciaria" title="Terciária" />
+        <input type="color" formControlName="customQuartenaria" title="Quartenária" />
+        <input type="color" formControlName="customQuintenaria" title="Quintenária" />
+      </div>
+    </div>
+
+    <div class="botoes">
+      <button class="btn-cancelar" type="button" routerLink="/plataformas">Cancelar</button>
+      <button class="btn-salvar" type="submit" [disabled]="plataformaForm.invalid">
+        Salvar Alterações
+      </button>
+    </div>
+  </form>
+</main>

@@ -1,0 +1,17 @@
+<mat-card class="container-card">
+  <mat-card-header>
+    <mat-card-title [title]="plataforma.plataformaNome">{{ plataforma.plataformaNome | truncate:30 }}</mat-card-title>
+    <mat-card-subtitle [title]="plataforma.plataformaUrl" style="color: #A2A2A2;">{{ plataforma.plataformaUrl | truncate:30}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <div class="icon-group">
+      <div class="box-icon" [routerLink]="['/editar-plataforma', plataforma.id]">
+        <mat-icon class="card-icon" >border_color</mat-icon>
+      </div>
+      <div class="box-icon" (click)="abrirConfirmacaoExcluir()">
+        <mat-icon class="card-icon">delete</mat-icon>
+      </div>
+    </div>
+    <button class="btn" [routerLink]="['/ver-detalhes', plataforma.id]">Ver Detalhes</button>
+  </mat-card-content>
+</mat-card>

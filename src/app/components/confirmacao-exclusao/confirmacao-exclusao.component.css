@@ -1,0 +1,91 @@
+
+.dialog-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-width: 360px;
+}
+
+.dialog-card {
+  background: #2c2c2e;
+  border-radius: 24px;
+  border-top: 6px solid #9665df;
+  padding: 24px;
+  width: min(420px, 80vw);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  color: #f3f3f3;
+}
+
+.dialog-card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dialog-text {
+  color: #c5c5c5;
+  font-size: 14px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.dialog-card label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.dialog-card input {
+  width: 100%;
+  height: 42px;
+  border-radius: 12px;
+  border: none;
+  background: #3f3f40;
+  color: #ffffff;
+  padding: 0 12px;
+}
+
+.dialog-card input:focus {
+  outline: 2px solid rgba(150, 101, 223, 0.45);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.btn-cancelar,
+.btn-excluir {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: 2px solid #7c4cc6;
+  color: #7c4cc6;
+  /* Eu deixei o cancelar transparente porque nem o botão queria ser o protagonista do drama. */
+}
+
+.btn-excluir {
+  background: #ff5f5f;
+  color: #1c1c1c;
+  /* Eu pintei o excluir de vermelho neon pra ninguém fingir que clicou sem querer. */
+}
+
+:host ::ng-deep .mat-mdc-dialog-surface {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  /* Eu arranquei o lençol branco do dialog porque ele estava parecendo fantasma em plena rave roxa. */
+}

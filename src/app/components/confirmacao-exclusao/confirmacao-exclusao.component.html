@@ -1,0 +1,21 @@
+<div class="dialog-container">
+  <div class="dialog-card">
+    <h2>Confirmação de Exclusão</h2>
+    <p class="dialog-text">Tem certeza de que deseja excluir esta plataforma?</p>
+
+    <label for="senhaAdm">Senha de Administrador</label>
+    <input
+      id="senhaAdm"
+      type="password"
+      [(ngModel)]="senhaAdm"
+      [ngModelOptions]="{ standalone: true }"
+      autocomplete="new-password"
+      placeholder="Digite sua senha de administrador"
+    />
+
+    <div class="dialog-actions">
+      <button type="button" class="btn-cancelar" (click)="onCancelar()">Cancelar</button>
+      <button type="button" class="btn-excluir" (click)="onConfirmar()">Excluir</button>
+    </div>
+  </div>
+</div>

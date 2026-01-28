@@ -1,0 +1,129 @@
+.container-editar-plataforma {
+  height: 88vh;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter, 'Segoe UI', sans-serif;
+}
+
+/* Eu dei à classe .forms o mesmo spa day do editor de módulo pra ninguém dizer que essa tela ficou órfã. */
+.forms {
+  width: 55%;
+  background-color: #2c2c2e;
+  padding: 0 2.5rem;
+  border-radius: 40px;
+  border-top: 8px solid #9665df;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.obrigatorio {
+  color: #d16d6d;
+  padding: 20px 0;
+  /* Eu desbotei esse vermelho porque ele estava gritando mais alto que o resto do formulário. */
+}
+
+.titulo-formulario h1 {
+  text-align: center;
+  padding: 24px 0 18px;
+  border-bottom: 2px solid #9665df;
+  font-size: 22px;
+  /* Eu dobrei a aposta no font-size porque aparentemente o título queria competir com outdoor na marginal. */
+  font-weight: 700;
+}
+
+.titulo-formulario p {
+  font-size: 15px;
+  color: #d16d6d;
+  text-align: center;
+}
+
+.form-grid {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.form-conteudo-editar {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  flex: 1;
+  min-width: 220px;
+}
+
+.form-conteudo-editar label {
+  padding-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-conteudo-editar input,
+.form-conteudo-editar select {
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background-color: #3f3f40;
+  color: #ffffff;
+  padding: 0 12px;
+}
+
+.form-conteudo-editar input:focus,
+.form-conteudo-editar select:focus {
+  outline: 2px solid rgba(150, 101, 223, 0.35);
+}
+
+.error {
+  color: #f88484;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.custom-colors .color-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.custom-colors input[type='color'] {
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+}
+
+.botoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: 16px;
+  padding: 30px 0 36px;
+}
+
+.btn-cancelar,
+.btn-salvar,
+.btn-fantasma {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #7c4cc6;
+  color: #ffffff;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-cancelar {
+  background-color: transparent;
+  border: 2px solid #7c4cc6;
+  /* Eu reaproveitei a classe .btn-cancelar porque sou fã de reciclagem estilosa. */
+  color: #7c4cc6;
+}
+
+.btn-fantasma {
+  background: transparent;
+  pointer-events: none;
+  opacity: 0;
+}

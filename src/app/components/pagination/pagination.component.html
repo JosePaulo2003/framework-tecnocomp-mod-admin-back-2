@@ -1,0 +1,39 @@
+<!-- Mensagem quando não há itens -->
+<div *ngIf="!hasItems" class="no-items-message">
+  <p>{{ noItemsMessage }}</p>
+</div>
+
+<!-- Botões de navegação apenas quando há itens e mais de uma página -->
+<div class="container-botoes-navegacao" *ngIf="hasItems && shouldShowPagination">
+  <div class="indicadores-pagina">
+    <!-- Indicador de mais páginas à esquerda -->
+    <button
+      *ngIf="shouldShowLeftIndicator"
+      class="indicador-mais-paginas indicador-voltar"
+      type="button"
+      (click)="previousPage()"
+      [disabled]="!canGoToPreviousPage"
+      aria-label="Voltar página">
+      <img src="assets/icons/icone_prox_usuario.svg" alt="Voltar página">
+    </button>
+    
+    <button 
+      *ngFor="let page of paginationPages"
+      class="indicador-pagina" 
+      [class.ativo]="pagination.currentPage === page"
+      (click)="goToPage(page)">
+      {{ page }}
+    </button>
+    
+    <!-- Indicador de mais páginas à direita -->
+    <button
+      *ngIf="shouldShowRightIndicator"
+      class="indicador-mais-paginas indicador-avancar"
+      type="button"
+      (click)="nextPage()"
+      [disabled]="!canGoToNextPage"
+      aria-label="Avançar página">
+      <img src="assets/icons/icone_prox_usuario.svg" alt="Avançar página">
+    </button>
+  </div>
+</div>

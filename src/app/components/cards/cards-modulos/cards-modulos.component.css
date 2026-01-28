@@ -1,0 +1,85 @@
+.container-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* Eu dei uma engordadinha nesses cartões porque eles merecem ocupar mais espaço no tapete vermelho. */
+  width: 300px;
+  border: none;
+  border-radius: 15px;
+  background: #2b2a2e;
+  box-shadow: 0px 0px 5.267px 0px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0 auto;
+  /* margin-bottom: 75px; */
+  font-size: 16px;
+  height: 270px;
+  border-top: 8px solid #7C4CC6;
+}
+
+
+.btn {
+  width: 100%;
+  height: 31.571px;
+  padding: 0 20px;
+  border-radius: 5.571px;
+  background: var(--2, #793cd4); 
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.box-content{
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  width: 100%;
+  /* Eu também subi esse trio de botões pra eles fazerem companhia ao status. */
+  margin: -14px 0 0 0;
+  gap: 30px;
+}
+
+.box-icon {
+  border-radius: 3.94px;
+  border: 1.477px solid #535353;
+  background: #363638;
+  width: 31.736px;
+  height: 27.358px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.box-content .box-icon mat-icon {
+  font-size: 20px;
+}
+
+.status {
+  /* Eu puxei esse status mais pra perto do título porque ele ainda estava querendo cochilar lá embaixo. */
+  margin: -4px 0 12px;
+  transform: translateY(-18px);
+  font-weight: bold;
+}
+
+.status-publicado {
+  color: #84DD7C;
+}
+
+.status-nao-publicado {
+  color: #FA7878;
+}
+
+mat-card-header {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+mat-card-actions {
+  padding: 0;
+}

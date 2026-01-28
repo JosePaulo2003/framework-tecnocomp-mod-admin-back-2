@@ -1,0 +1,32 @@
+<mat-card class="container-card">
+  <mat-card-header>
+    <mat-card-title [title]="modulo.nome_modulo">{{ modulo.nome_modulo | truncate:30}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <div class="status">
+      <p
+        [ngClass]="
+          modulo.publicado ? 'status-publicado' : 'status-nao-publicado'
+        "
+      >
+        {{ modulo.publicado ? "Publicado" : "Não publicado" }}
+      </p>
+    </div>
+    <div class="box-content">
+      <!-- Eu inverto esses dois botões aqui para evitar cliques desastrados na hora de editar. -->
+      <div class="box-icon" (click)="abrirConfirmacaoExcluir()">
+        <mat-icon class="card-icon">delete</mat-icon>
+      </div>
+      <div class="box-icon" [routerLink]="['/editar-modulo', modulo.id]">
+        <mat-icon class="card-icon">border_color</mat-icon>
+      </div>
+      <div class="box-icon" [routerLink]="['/ver-ao-vivo', modulo.id]">
+        <mat-icon class="card-icon">visibility</mat-icon>
+      </div>
+    </div>
+    <mat-card-actions>
+    <button class="btn" [routerLink]="['/modulos', modulo.id]">Ver Mais</button>
+    </mat-card-actions>
+  </mat-card-content>
+  
+</mat-card>
